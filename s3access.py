@@ -11,7 +11,7 @@ access_key = serverparamsJSON["aws_access_key_id"]
 secret_key = serverparamsJSON["aws_secret_access_key"]
 base_region = serverparamsJSON["base_region"]
 
-# Creating the low level functional client kkk
+# Creating the low level functional client
 
 client = boto3.client(
     's3',
@@ -20,11 +20,11 @@ client = boto3.client(
     region_name = base_region
 )
 
-"""
+""" hard coded access keys alternative
 client = boto3.client(
     's3',
-    aws_access_key_id = 'AKIATBDHBTXPJXFHIXL2',
-    aws_secret_access_key = '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',
+    aws_access_key_id = '************************',
+    aws_secret_access_key = '*******************************************',
     region_name = base_region
 )
 """
@@ -38,13 +38,14 @@ resource = boto3.resource(
     region_name='eu-central-1'
 )
 
-#resource = boto3.resource(
-#   's3',
-#    aws_access_key_id='AKIATBDHBTXPJXFHIXL2',
-#    aws_secret_access_key='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',
-#    region_name='eu-central-1'
-#)
-
+"""
+resource = boto3.resource(
+   's3',
+    aws_access_key_id='******************',
+    aws_secret_access_key='**********************************',
+    region_name='eu-central-1'
+)
+"""
 # Creating a bucket in AWS S3
 def Create_New_Bucket(bucket_name, selected_region):
     location = {'LocationConstraint': selected_region}
