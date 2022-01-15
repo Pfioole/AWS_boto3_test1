@@ -1,8 +1,8 @@
 import boto3
-import pandas
+#import pandas
 
 import json
-import os
+#import os
 
 filepath = "./serverparams.json"
 with open(filepath) as json_file:
@@ -46,7 +46,7 @@ resource = boto3.resource(
     region_name='eu-central-1'
 )
 """
-# Creating a bucket in AWS S3
+# Function to create a bucket in AWS S3
 def Create_New_Bucket(bucket_name, selected_region):
     location = {'LocationConstraint': selected_region}
     client.create_bucket(
@@ -65,7 +65,7 @@ clientResponse = client.list_buckets()
 print('Printing bucket names...')
 for bucket in clientResponse['Buckets']:
     print(f'Bucket Name: {bucket["Name"]}')
-
+"""
 # Read a csv object
 obj = client.get_object(
     Bucket = 'study-1',
@@ -80,3 +80,4 @@ print(data)
 
 #Fetch the list of existing buckets
 
+"""
