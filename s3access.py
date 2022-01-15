@@ -54,10 +54,11 @@ def Create_New_Bucket(bucket_name, selected_region):
         CreateBucketConfiguration = location
     )
     return ('Bucket created')
-
+"""
 # Creating a bucket in AWS S3
 message = Create_New_Bucket("study-1", base_region)
 print(message)
+"""
 
 clientResponse = client.list_buckets()
 
