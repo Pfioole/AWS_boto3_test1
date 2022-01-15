@@ -38,7 +38,7 @@ resource = boto3.resource(
     region_name='eu-central-1'
 )
 
-"""
+"""hard coded access keys alternative
 resource = boto3.resource(
    's3',
     aws_access_key_id='******************',
