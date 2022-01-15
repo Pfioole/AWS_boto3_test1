@@ -20,12 +20,14 @@ client = boto3.client(
     region_name = base_region
 )
 
-#client = boto3.client(
-#    's3',
-#    aws_access_key_id = 'AKIATBDHBTXPJXFHIXL2',
-#    aws_secret_access_key = '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',
-#    region_name = base_region
-#)
+"""
+client = boto3.client(
+    's3',
+    aws_access_key_id = 'AKIATBDHBTXPJXFHIXL2',
+    aws_secret_access_key = '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',
+    region_name = base_region
+)
+"""
 
 # Creating the high level object oriented interface
 
