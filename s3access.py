@@ -1,8 +1,9 @@
 import boto3
 #import pandas
-
 import json
 #import os
+import time
+
 
 filepath = "./serverparams.json"
 with open(filepath) as json_file:
@@ -60,6 +61,7 @@ message = Create_New_Bucket("study-1", base_region)
 print(message)
 """
 
+time.sleep(15) # Sleep for 15 seconds
 clientResponse = client.list_buckets()
 
 #Print the bucket names one by one
