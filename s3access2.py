@@ -61,7 +61,7 @@ fs = s3fs.S3FileSystem(anon=False, key=access_key, secret=secret_key)
 #fs = s3fs.S3FileSystem(anon=False, key=access_key, secret=secret_key)
 fs.ls('study-5')
 with fs.open('study-5/ae.sas7bdat', 'rb') as f:
-    pd.read_sas(f, format='sas7bdat', encoding='iso-8859-1')
+    df_domain = pd.read_sas(f, format='sas7bdat', encoding='iso-8859-1')
 
 """
 obj = client.get_object(
