@@ -58,7 +58,7 @@ for bucket in clientResponse['Buckets']:
 # Read a sas object
 
 from pandas.io.sas.sas7bdat import SAS7BDATReader
-fs = s3fs.S3FileSystem(anon=True)
+fs = s3fs.S3FileSystem(anon=False)
 fs.ls('study-5')['ae.sas7bdat']
 with fs.open('my-bucket/my-file.txt', 'rb') as f:
     pd.read_sas(f, format='sas7bdat', encoding='iso-8859-1')
