@@ -57,7 +57,7 @@ for bucket in clientResponse['Buckets']:
 # Read a sas object
 obj = client.get_object(
     Bucket = 'study-5',
-    Key = 'AE.sas7bdat'
+    Key = 'ae.sas7bdat'
 )
 df_domain = pd.read_sas(obj, format='sas7bdat', encoding='iso-8859-1')
 # data = pandas.read_csv(obj['Body'])
