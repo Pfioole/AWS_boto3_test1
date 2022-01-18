@@ -59,7 +59,7 @@ obj = client.get_object(
     Bucket = 'study-5',
     Key = 'ae.sas7bdat'
 )
-df_domain = pd.read_sas(obj, format='sas7bdat', encoding='iso-8859-1')
+df_domain = pd.read_sas(obj['Body'], format='sas7bdat', encoding='iso-8859-1')
 # data = pandas.read_csv(obj['Body'])
 
 # Print the dataframe
