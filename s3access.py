@@ -2,7 +2,7 @@ import boto3
 #import pandas
 import json
 #import os
-import time
+import random
 
 
 filepath = "./serverparams.json"
@@ -21,15 +21,6 @@ client = boto3.client(
     region_name = base_region
 )
 
-""" hard coded access keys alternative
-client = boto3.client(
-    's3',
-    aws_access_key_id = '************************',
-    aws_secret_access_key = '*******************************************',
-    region_name = base_region
-)
-"""
-
 # Creating the high level object oriented interface
 
 resource = boto3.resource(
@@ -39,31 +30,23 @@ resource = boto3.resource(
     region_name='eu-central-1'
 )
 
-"""hard coded access keys alternative
-resource = boto3.resource(
-   's3',
-    aws_access_key_id='******************',
-    aws_secret_access_key='**********************************',
-    region_name='eu-central-1'
-)
-"""
+
 # Function to create a bucket in AWS S3
-def Create_New_Bucket(bucket_name, selected_region):
+def create_new_bucket(bucket_name, selected_region):
     location = {'LocationConstraint': selected_region}
     client.create_bucket(
         Bucket= bucket_name,
         CreateBucketConfiguration = location
     )
     return ('Bucket created')
-"""
+
+
 # Creating a bucket in AWS S3
-message = Create_New_Bucket("study-1", base_region)
+studyName = "study" + random.randint(1,1000)
+message = create_new_bucket(studyName, base_region)
 print(message)
-"""
 
-time.sleep(15) # Sleep for 15 seconds
 clientResponse = client.list_buckets()
-
 #Print the bucket names one by one
 print('Printing bucket names...')
 for bucket in clientResponse['Buckets']:
