@@ -1,5 +1,5 @@
 import boto3
-#import pandas
+import pandas as pd
 import json
 #import os
 import random
@@ -46,24 +46,26 @@ studyName = "study" + str(random.randint(1,1000))
 message = create_new_bucket(studyName, base_region)
 print(message)
 
+
+
 clientResponse = client.list_buckets()
 #Print the bucket names one by one
 print('Printing bucket names...')
 for bucket in clientResponse['Buckets']:
     print(f'Bucket Name: {bucket["Name"]}')
-"""
-# Read a csv object
+
+# Read a sas object
 obj = client.get_object(
-    Bucket = 'study-1',
-    Key = 'testtabel.csv'
+    Bucket = 'study-5',
+    Key = 'AE.sas7bdat'
 )
-data = pandas.read_csv(obj['Body'])
+df_domain = pd.read_sas(obj, format='sas7bdat', encoding='iso-8859-1')
+# data = pandas.read_csv(obj['Body'])
 
 # Print the dataframe
 
 print('Printing the dataframe...')
-print(data)
+print(df_domain)
 
 #Fetch the list of existing buckets
 
-"""
