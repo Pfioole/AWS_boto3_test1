@@ -55,10 +55,10 @@ print('Printing bucket names...')
 for bucket in clientResponse['Buckets']:
     print(f'Bucket Name: {bucket["Name"]}')
 
-# Read a sas object k
-
+# Read a sas object
 from pandas.io.sas.sas7bdat import SAS7BDATReader
 fs = s3fs.S3FileSystem(anon=False, key=access_key, secret=secret_key)
+#fs = s3fs.S3FileSystem(anon=False, key=access_key, secret=secret_key)
 fs.ls('study-5')['ae.sas7bdat']
 with fs.open('my-bucket/my-file.txt', 'rb') as f:
     pd.read_sas(f, format='sas7bdat', encoding='iso-8859-1')
