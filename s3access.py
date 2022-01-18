@@ -42,7 +42,7 @@ def create_new_bucket(bucket_name, selected_region):
 
 
 # Creating a bucket in AWS S3
-studyName = "study" + random.randint(1,1000)
+studyName = "study" + str(random.randint(1,1000))
 message = create_new_bucket(studyName, base_region)
 print(message)
 
