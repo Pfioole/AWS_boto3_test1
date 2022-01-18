@@ -3,6 +3,7 @@ import pandas as pd
 import json
 #import os
 import random
+import s3fs
 
 
 filepath = "./serverparams.json"
@@ -55,15 +56,24 @@ for bucket in clientResponse['Buckets']:
     print(f'Bucket Name: {bucket["Name"]}')
 
 # Read a sas object
+
+from pandas.io.sas.sas7bdat import SAS7BDATReader
+fs = s3fs.S3FileSystem(anon=False)
+fs = s3fs.S3FileSystem(anon=True)
+fs.ls('Study-5')['ae.sas7bdat']
+with fs.open('my-bucket/my-file.txt', 'rb') as f:
+    pd.read_sas(f, format='sas7bdat', encoding='iso-8859-1')
+
+"""
 obj = client.get_object(
     Bucket = 'study-5',
     Key = 'ae.sas7bdat'
 )
 df_domain = pd.read_sas(obj['Body'], format='sas7bdat', encoding='iso-8859-1')
 # data = pandas.read_csv(obj['Body'])
+"""
 
 # Print the dataframe
-
 print('Printing the dataframe...')
 print(df_domain)
 
